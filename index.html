@@ -101,13 +101,16 @@
                 </div>
 
                 <!-- Reading Challenge -->
-                <div class="tile bg-white rounded-xl p-6 shadow-lg" data-url="https://g.co/gemini/share/23bfec02d9bb">
+                <div class="tile bg-white rounded-xl p-6 shadow-lg relative" data-url="https://g.co/gemini/share/174cb45e568d">
                     <div class="text-center mb-4">
                         <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-book-open text-white text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-800 mb-2">Reading Challenge</h3>
                         <p class="text-gray-600">Short reading exercises with audio support. Includes comprehension questions at different levels. Infinite article generation powered by AI.</p>
+                    </div>
+                    <div class="absolute bottom-4 right-4 copy-icon" data-url="https://g.co/gemini/share/174cb45e568d" title="This application can be shared with students for autonomous practice">
+                        <i class="fas fa-copy text-gray-400 hover:text-blue-500 cursor-pointer text-lg"></i>
                     </div>
                 </div>
 
@@ -131,7 +134,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="listeningApps">
                 
                 <!-- 1º ESO -->
-                <div class="tile bg-white rounded-xl p-6 shadow-lg" data-url="https://g.co/gemini/share/8caf2d8aec2e">
+                <div class="tile bg-white rounded-xl p-6 shadow-lg relative" data-url="https://g.co/gemini/share/8caf2d8aec2e">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-volume-up text-white text-2xl"></i>
@@ -139,10 +142,13 @@
                         <h3 class="text-xl font-bold text-gray-800 mb-2">1º ESO</h3>
                         <p class="text-gray-600">Listening practice for first year secondary students</p>
                     </div>
+                    <div class="absolute bottom-4 right-4 copy-icon" data-url="https://g.co/gemini/share/8caf2d8aec2e" title="This application can be shared with students for autonomous practice">
+                        <i class="fas fa-copy text-gray-400 hover:text-blue-500 cursor-pointer text-lg"></i>
+                    </div>
                 </div>
 
                 <!-- 2º ESO -->
-                <div class="tile bg-white rounded-xl p-6 shadow-lg" data-url="https://g.co/gemini/share/53e3bf349a1e">
+                <div class="tile bg-white rounded-xl p-6 shadow-lg relative" data-url="https://g.co/gemini/share/53e3bf349a1e">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-volume-up text-white text-2xl"></i>
@@ -150,10 +156,13 @@
                         <h3 class="text-xl font-bold text-gray-800 mb-2">2º ESO</h3>
                         <p class="text-gray-600">Listening practice for second year secondary students</p>
                     </div>
+                    <div class="absolute bottom-4 right-4 copy-icon" data-url="https://g.co/gemini/share/53e3bf349a1e" title="This application can be shared with students for autonomous practice">
+                        <i class="fas fa-copy text-gray-400 hover:text-blue-500 cursor-pointer text-lg"></i>
+                    </div>
                 </div>
 
                 <!-- 3º ESO -->
-                <div class="tile bg-white rounded-xl p-6 shadow-lg" data-url="https://g.co/gemini/share/7d424ce9b8ff">
+                <div class="tile bg-white rounded-xl p-6 shadow-lg relative" data-url="https://g.co/gemini/share/7d424ce9b8ff">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
                             <i class="fas fa-volume-up text-white text-2xl"></i>
@@ -161,16 +170,22 @@
                         <h3 class="text-xl font-bold text-gray-800 mb-2">3º ESO</h3>
                         <p class="text-gray-600">Listening practice for third year secondary students</p>
                     </div>
+                    <div class="absolute bottom-4 right-4 copy-icon" data-url="https://g.co/gemini/share/7d424ce9b8ff" title="This application can be shared with students for autonomous practice">
+                        <i class="fas fa-copy text-gray-400 hover:text-blue-500 cursor-pointer text-lg"></i>
+                    </div>
                 </div>
 
                 <!-- 4º ESO -->
-                <div class="tile bg-white rounded-xl p-6 shadow-lg" data-url="https://g.co/gemini/share/e37f08568986">
+                <div class="tile bg-white rounded-xl p-6 shadow-lg relative" data-url="https://g.co/gemini/share/a300c3fa35b0">
                     <div class="text-center">
                         <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fas fa-clock text-white text-2xl"></i>
+                            <i class="fas fa-volume-up text-white text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-800 mb-2">4º ESO</h3>
                         <p class="text-gray-600">Listening practice for fourth year secondary students</p>
+                    </div>
+                    <div class="absolute bottom-4 right-4 copy-icon" data-url="https://g.co/gemini/share/a300c3fa35b0" title="This application can be shared with students for autonomous practice">
+                        <i class="fas fa-copy text-gray-400 hover:text-blue-500 cursor-pointer text-lg"></i>
                     </div>
                 </div>
             </div>
@@ -201,27 +216,32 @@
             const query = this.value.toLowerCase().trim();
             
             if (query === '') {
+                // Show all tiles when search is empty
+                allTiles.forEach(tile => {
+                    tile.style.display = 'block';
+                });
                 searchResults.style.display = 'none';
                 return;
             }
 
-            const filteredApps = apps.filter(app => 
-                app.title.toLowerCase().includes(query) || 
-                app.description.toLowerCase().includes(query)
-            );
+            // Hide dropdown search results
+            searchResults.style.display = 'none';
 
-            if (filteredApps.length > 0) {
-                searchResults.innerHTML = filteredApps.map(app => `
-                    <div class="p-4 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0" onclick="openApp('${app.url}')">
-                        <h4 class="font-semibold text-gray-800">${app.title}</h4>
-                        <p class="text-sm text-gray-600 mt-1">${app.description.substring(0, 100)}...</p>
-                    </div>
-                `).join('');
-                searchResults.style.display = 'block';
-            } else {
-                searchResults.innerHTML = '<div class="p-4 text-gray-500 text-center">No applications found</div>';
-                searchResults.style.display = 'block';
-            }
+            // Filter and show/hide tiles based on search
+            let hasResults = false;
+            allTiles.forEach(tile => {
+                const title = tile.querySelector('h3').textContent.toLowerCase();
+                const description = tile.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(query) || description.includes(query)) {
+                    tile.style.display = 'block';
+                    hasResults = true;
+                } else {
+                    tile.style.display = 'none';
+                }
+            });
+
+            // If no results, you could add a "no results" message here if needed
         });
 
         // Hide search results when clicking outside
@@ -246,13 +266,58 @@
             });
         });
 
-        // Prevent clicks on disabled tiles
-        document.querySelectorAll('.tile.opacity-60').forEach(tile => {
-            tile.style.cursor = 'not-allowed';
-            tile.addEventListener('click', function(e) {
-                e.stopPropagation();
+        // Copy functionality for copy icons
+        function copyToClipboard(url, iconElement) {
+            if (navigator.clipboard && window.isSecureContext) {
+                navigator.clipboard.writeText(url).then(function() {
+                    showCopyFeedback(iconElement);
+                }).catch(function(err) {
+                    fallbackCopyTextToClipboard(url, iconElement);
+                });
+            } else {
+                fallbackCopyTextToClipboard(url, iconElement);
+            }
+        }
+
+        function fallbackCopyTextToClipboard(text, iconElement) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.top = "0";
+            textArea.style.left = "0";
+            textArea.style.position = "fixed";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showCopyFeedback(iconElement);
+            } catch (err) {
+                console.error('Fallback: Could not copy text: ', err);
+            }
+            
+            document.body.removeChild(textArea);
+        }
+
+        function showCopyFeedback(iconElement) {
+            const originalClass = iconElement.className;
+            iconElement.className = 'fas fa-check text-green-500 text-lg';
+            
+            setTimeout(() => {
+                iconElement.className = originalClass;
+            }, 2000);
+        }
+
+        document.querySelectorAll('.copy-icon').forEach(copyIcon => {
+            copyIcon.addEventListener('click', function(e) {
+                e.stopPropagation(); // Prevent tile click
+                const url = this.getAttribute('data-url');
+                const icon = this.querySelector('i');
+                copyToClipboard(url, icon);
             });
         });
+
+        // All tiles are now functional
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96be24d2a58fcbe4',t:'MTc1NDY0Njk4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96be67d9262cc8f5',t:'MTc1NDY0OTczMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
