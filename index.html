@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Department AI Generated Resources</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .tile {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .search-container {
+            position: relative;
+        }
+        .search-results {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            z-index: 10;
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+    </style>
+</head>
+<body class="font-sans">
+    <div class="container mx-auto px-6 py-8">
+        <!-- Header -->
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold text-white mb-4">
+                <i class="fas fa-graduation-cap mr-4"></i>
+                English Department AI Generated Resources
+            </h1>
+            <p class="text-xl text-white opacity-90">Innovative tools powered by AI for modern English teaching</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container max-w-2xl mx-auto mb-12">
+            <div class="relative">
+                <input 
+                    type="text" 
+                    id="searchInput"
+                    placeholder="Search applications..." 
+                    class="w-full px-6 py-4 text-lg rounded-full border-0 shadow-lg focus:outline-none focus:ring-4 focus:ring-white focus:ring-opacity-30"
+                >
+                <i class="fas fa-search absolute right-6 top-1/2 transform -translate-y-1/2 text-gray-400 text-xl"></i>
+            </div>
+            <div id="searchResults" class="search-results"></div>
+        </div>
+
+        <!-- Main Applications Section -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-8 text-center">Main Applications</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="mainApps">
+                
+                <!-- Classroom Tools -->
+                <div class="tile bg-white rounded-xl p-6 shadow-lg" data-url="https://www.canva.com/design/DAGveW63MT8/s07IZMax47UAcCDJBuXVdw/view?utm_content=DAGveW63MT8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h1835bb259b">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-tools text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Classroom Tools</h3>
+                        <p class="text-gray-600">Essential classroom utilities including timer, traffic light system, group generator, random student picker, and more interactive tools for effective classroom management.</p>
+                    </div>
+                </div>
+
+                <!-- AI Listening Generator -->
+                <div class="tile bg-white rounded-xl p-6 shadow-lg" data-url="https://g.co/gemini/share/9c270619878e">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-headphones text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">AI Listening Generator v.02</h3>
+                        <p class="text-gray-600">Generate unlimited listening exercises with corresponding forms. Creates both narrator-style and dialogue-based listening activities using AI technology.</p>
+                    </div>
+                </div>
+
+                <!-- StorySpark -->
+                <div class="tile bg-white rounded-xl p-6 shadow-lg" data-url="https://g.co/gemini/share/3a94165dff9d">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-lightbulb text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">StorySpark</h3>
+                        <p class="text-gray-600">Visual prompt generator for creative writing development. Perfect for speaking lessons too. Generates infinite creative prompts using AI technology.</p>
+                    </div>
+                </div>
+
+                <!-- Reading Challenge -->
+                <div class="tile bg-white rounded-xl p-6 shadow-lg" data-url="#">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-book-open text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Reading Challenge</h3>
+                        <p class="text-gray-600">Short reading exercises with audio support. Includes comprehension questions at different levels. Infinite article generation powered by AI.</p>
+                    </div>
+                </div>
+
+                <!-- Rubric Evaluation -->
+                <div class="tile bg-white rounded-xl p-6 shadow-lg" data-url="#">
+                    <div class="text-center mb-4">
+                        <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-clipboard-check text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Rubric Evaluation</h3>
+                        <p class="text-gray-600">Simple rubric-based evaluation system. Generates reports for future reviews and inspections. Streamlined assessment process.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Listening Practice Section -->
+        <div class="mb-16">
+            <h2 class="text-3xl font-bold text-white mb-4 text-center">Listening Practice for Students</h2>
+            <p class="text-white text-center mb-8 opacity-90">Practice listenings with official Synchronize curriculum content, infinite listening generation</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="listeningApps">
+                
+                <!-- 1º ESO -->
+                <div class="tile bg-white rounded-xl p-6 shadow-lg" data-url="https://g.co/gemini/share/8caf2d8aec2e">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-volume-up text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">1º ESO</h3>
+                        <p class="text-gray-600">Listening practice for first year secondary students</p>
+                    </div>
+                </div>
+
+                <!-- 2º ESO -->
+                <div class="tile bg-white rounded-xl p-6 shadow-lg" data-url="https://g.co/gemini/share/53e3bf349a1e">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-red-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-volume-up text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">2º ESO</h3>
+                        <p class="text-gray-600">Listening practice for second year secondary students</p>
+                    </div>
+                </div>
+
+                <!-- 3º ESO -->
+                <div class="tile bg-white rounded-xl p-6 shadow-lg" data-url="https://g.co/gemini/share/a7837fa94c28">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-volume-up text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">3º ESO</h3>
+                        <p class="text-gray-600">Listening practice for third year secondary students</p>
+                    </div>
+                </div>
+
+                <!-- 4º ESO -->
+                <div class="tile bg-white rounded-xl p-6 shadow-lg opacity-60" data-url="#">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-purple-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-clock text-white text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">4º ESO</h3>
+                        <p class="text-gray-600">Coming soon - Pending publication</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center text-white opacity-75 text-sm">
+            <p>This app has been developed by Eduardo Ruiz (@ejruizgarcia), 2025, using Canva and Gemini and is licensed under CC BY-NC 4.0.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+        const allTiles = document.querySelectorAll('.tile');
+
+        // Create searchable data
+        const apps = [];
+        allTiles.forEach(tile => {
+            const title = tile.querySelector('h3').textContent;
+            const description = tile.querySelector('p').textContent;
+            const url = tile.getAttribute('data-url');
+            apps.push({ title, description, url, element: tile });
+        });
+
+        searchInput.addEventListener('input', function() {
+            const query = this.value.toLowerCase().trim();
+            
+            if (query === '') {
+                searchResults.style.display = 'none';
+                return;
+            }
+
+            const filteredApps = apps.filter(app => 
+                app.title.toLowerCase().includes(query) || 
+                app.description.toLowerCase().includes(query)
+            );
+
+            if (filteredApps.length > 0) {
+                searchResults.innerHTML = filteredApps.map(app => `
+                    <div class="p-4 hover:bg-gray-50 cursor-pointer border-b border-gray-100 last:border-b-0" onclick="openApp('${app.url}')">
+                        <h4 class="font-semibold text-gray-800">${app.title}</h4>
+                        <p class="text-sm text-gray-600 mt-1">${app.description.substring(0, 100)}...</p>
+                    </div>
+                `).join('');
+                searchResults.style.display = 'block';
+            } else {
+                searchResults.innerHTML = '<div class="p-4 text-gray-500 text-center">No applications found</div>';
+                searchResults.style.display = 'block';
+            }
+        });
+
+        // Hide search results when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.search-container')) {
+                searchResults.style.display = 'none';
+            }
+        });
+
+        // Tile click functionality
+        function openApp(url) {
+            if (url && url !== '#') {
+                window.open(url, '_blank');
+            }
+        }
+
+        // Add click listeners to all tiles
+        allTiles.forEach(tile => {
+            tile.addEventListener('click', function() {
+                const url = this.getAttribute('data-url');
+                openApp(url);
+            });
+        });
+
+        // Prevent clicks on disabled tiles
+        document.querySelectorAll('.tile.opacity-60').forEach(tile => {
+            tile.style.cursor = 'not-allowed';
+            tile.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96be24d2a58fcbe4',t:'MTc1NDY0Njk4Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
