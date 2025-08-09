@@ -250,7 +250,7 @@
                             <i class="fas fa-microphone text-white text-2xl"></i>
                         </div>
                         <h3 class="text-xl font-bold text-gray-800 mb-2">Speaking Activities Generator</h3>
-                        <p class="text-gray-600">Quickly create activities, mini-projects and projects for your speaking classes. Design your curriculum by choosing snf discarding proposals.</p>
+                        <p class="text-gray-600">Quickly create activities, mini-projects and projects for your speaking classes. Design your curriculum by choosing and discarding interesting proposals.</p>
                     </div>
                 </div>
             </div>
@@ -531,7 +531,96 @@
             });
         });
 
+        // Drag and drop functionality for main apps section only
+        let draggedElement = null;
+        const mainAppsContainer = document.getElementById('mainApps');
+        const mainAppsTiles = mainAppsContainer.querySelectorAll('.tile');
+
+        // Add draggable attribute to main apps tiles
+        mainAppsTiles.forEach(tile => {
+            tile.setAttribute('draggable', 'true');
+        });
+
+        // Drag start
+        mainAppsContainer.addEventListener('dragstart', function(e) {
+            if (e.target.classList.contains('tile')) {
+                draggedElement = e.target;
+                e.target.classList.add('dragging');
+                e.dataTransfer.effectAllowed = 'move';
+                e.dataTransfer.setData('text/html', e.target.outerHTML);
+            }
+        });
+
+        // Drag end
+        mainAppsContainer.addEventListener('dragend', function(e) {
+            if (e.target.classList.contains('tile')) {
+                e.target.classList.remove('dragging');
+                // Remove drag-over class from all tiles
+                mainAppsContainer.querySelectorAll('.tile').forEach(tile => {
+                    tile.classList.remove('drag-over');
+                });
+            }
+        });
+
+        // Drag over
+        mainAppsContainer.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            e.dataTransfer.dropEffect = 'move';
+            
+            const afterElement = getDragAfterElement(mainAppsContainer, e.clientY);
+            const dragging = document.querySelector('.dragging');
+            
+            // Remove drag-over from all tiles first
+            mainAppsContainer.querySelectorAll('.tile').forEach(tile => {
+                tile.classList.remove('drag-over');
+            });
+            
+            if (afterElement == null) {
+                if (dragging) {
+                    mainAppsContainer.appendChild(dragging);
+                }
+            } else {
+                afterElement.classList.add('drag-over');
+                if (dragging) {
+                    mainAppsContainer.insertBefore(dragging, afterElement);
+                }
+            }
+        });
+
+        // Drop
+        mainAppsContainer.addEventListener('drop', function(e) {
+            e.preventDefault();
+            // Remove drag-over class from all tiles
+            mainAppsContainer.querySelectorAll('.tile').forEach(tile => {
+                tile.classList.remove('drag-over');
+            });
+        });
+
+        // Helper function to get the element after which to insert
+        function getDragAfterElement(container, y) {
+            const draggableElements = [...container.querySelectorAll('.tile:not(.dragging)')];
+            
+            return draggableElements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset: offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+
+        // Prevent default drag behavior on dropdown triggers
+        document.querySelectorAll('.dropdown-trigger').forEach(trigger => {
+            trigger.addEventListener('dragstart', function(e) {
+                e.stopPropagation();
+                e.preventDefault();
+            });
+        });
+
         // All tiles are now functional
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96c2225013c80359',t:'MTc1NDY4ODgyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96c677f4e20e1a7c',t:'MTc1NDczNDI3OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
